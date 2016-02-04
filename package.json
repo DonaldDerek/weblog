@@ -1,0 +1,25 @@
+{
+  "name": "weblog",
+  "version": "0.0.0",
+  "description": "Use your email client interface as a blogging platform.",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [
+    "webmail",
+    "weblog",
+    "cms"
+  ],
+  "author": "Donald Derek Haddad",
+  "license": "MIT",
+  "dependencies": {
+    "connect": "~2.2.0",
+    "compression": "~1.2.0",
+    "mongodb": "~1.4.22",
+    "connect-render": "~0.4.1",
+    "mongoose": "~3.8.19",
+    "ejs": "~1.0.0",
+    "socket.io": "~1.2.1",
+    "imap": "~0.8.14",
+    "mimelib": "~0.2.18"
+  }
+}

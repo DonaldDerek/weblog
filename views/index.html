@@ -1,0 +1,39 @@
+<% include head.html %>
+
+<h1>Personal WebLog: </h1>
+<% if (articles.length) { %>
+    <div class='container'>
+        <% articles.forEach(function(article){ %>
+            <div class='article'>
+                <h2><%= article.title %></h2>
+                <em>Date: <%= article.date %></em>
+                <hr/>
+                <div class='content'><%= article.content %></div>
+            </div>
+        <% }) %>
+    </div>
+<% } %>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script>
+var host = document.location.origin;
+var socket = io(host);
+socket.on('news', function (data) {
+    console.log(data);
+    socket.emit('my other event', { my: 'data' });
+});
+$(document).ready(function(){
+
+    $(".content").each(function(i, item){
+            var le = $(this),
+                el = le.text(),
+                article = le.parent();
+            le.remove();
+            $(el).appendTo(article);
+    })
+    $(".container").css('visibility','visible');
+})
+</script>
+
+<% include footer.html %>
